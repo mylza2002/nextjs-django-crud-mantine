@@ -5,7 +5,7 @@ import FormTask from "./components/FormTask"
 import ListTask from "./components/ListTask"
 
 function Home() {
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState([] as any[])
 
   // Función para recargar tasks desde la API
   const loadTasks = async () => {
@@ -19,7 +19,8 @@ function Home() {
   }, [])
 
   // Función que pasaremos a FormTask para agregar una task nueva
-  const addTask = (task) => {
+  const addTask = (task: any) => {
+    if (!task) return
     setTasks(prev => [...prev, task])
   }
 
